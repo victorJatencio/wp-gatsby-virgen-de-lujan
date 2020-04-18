@@ -33,7 +33,6 @@ module.exports = {
         typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
         url: `http://agrupacionvirgendelujan/graphql`,
-        // refetchInterval: 60,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
