@@ -1,42 +1,47 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({ siteTitle }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      wpgraphql {
+        generalSettings {
+          title
+          url
+        }
+        menu(id: "TWVudToy") {
+          menuItems {
+            nodes {
+              id
+              url
+              label
+            }
+          }
+        }
+      }
+    }
+  `)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  const { title, url } = data.wpgraphql.generalSettings
+  const items = data.wpgraphql.menu.menuItems.nodes.map(item => ({
+    ...item,
+    url: item.url.replace(url, ""),
+  }))
 
-Header.defaultProps = {
-  siteTitle: ``,
+  return (
+    <header>
+      <Link to="/home">{title}</Link>
+      <nav>
+        <ul>
+          {items.map(item => (
+            <li key={item.id}>
+              <Link to={item.url}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  )
 }
 
 export default Header
