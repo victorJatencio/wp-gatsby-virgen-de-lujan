@@ -32,7 +32,7 @@ module.exports = {
       options: {
         typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
-        url: `http://agrupacionvirgendelujan.local/graphql`,
+        url: `http://agrupacionvirgendelujan`,
         refetchInterval: 60,
       },
     },
