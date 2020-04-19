@@ -28,12 +28,20 @@ module.exports = {
       },
     },
     // {
-    //   resolve: `gatsby-source-graphql`,
+    //   resolve: "gatsby-source-wordpress",
     //   options: {
-    //     typeName: `WPGraphQL`,
-    //     fieldName: `wpgraphql`,
-    //     url: `http://agrupacionvirgendelujan/graphql`,
+    //     baseUrl: "wp.agrupacionvirgendelujan.com/",
+    //     protocol: "https",
+    //     hostingWPCOM: false,
     //   },
     // },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpgraphql`,
+        url: `http://agrupacionvirgendelujan/graphql`,
+      },
+    },
   ],
 }
