@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:500,700|Montserrat:400,600,700&display=swap");
+
+// UI Color Palete
+$light-grey: #f2f2f2;
+$black: #0d0d0d;
+
+// Highlights
+$light-grey: #fbfbfb;
+$light-black: #161616;
+$light-blue-a: #dff0fb;
+$light-blue-b: #6edceb;
+$light-blue-c: #26bce3;
+$light-yellow: #f6b40f;
+
+// Primaries
+$grey: #f2f2f2;
+$black: #0d0d0d;
+$blue-a: #99d0f2;
+$blue-b: #418fbf;
+$blue-c: #176fa6;
+
+// Shades
+$dark-grey: #efefef;
+$complete-black: #000000;
+$dark-blue-a: #86c7ef;
+$dark-blue-b: #1e7ab3;
+$dark-blue-c: #005595;
+
+// Map Colors
+$ui: (
+  primary: $black,
+  accent: $blue-b,
+  light-blue: $light-blue-a,
+);
+
+@function color($color-name) {
+  @return map-get($ui, $color-name);
+}
+
+// Mixins Media Queries
+$desktop: 79em;
+$mdDesktop: 69em;
+$tablet: 48rem;
+$phone: 767px;
+
+@mixin lgDesktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin mdDesktop {
+  @media (max-width: #{$mdDesktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$phone}) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Frank Ruhl Libre", serif;
+  margin-bottom: 2.1875rem;
+}
+
+h2 {
+  font-size: 48px;
+}
+h3 {
+  font-size: 34px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  font-size: 0.9em;
+  color: color(primary);
+  text-decoration: none;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: $blue-b;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    a {
+      color: #fff;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.lg-divider {
+  margin-top: 5rem;
+}
+
+.header {
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  .container {
+    padding: 1rem;
+  }
+
+  .nav {
+    ul.main-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      @include tablet {
+        display: none;
+      }
+
+      li {
+        position: relative;
+        a {
+          font-size: 0.9em;
+          display: block;
+          padding: 1em;
+          color: #fff;
+
+          &:hover {
+            color: $light-blue-c;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* decoration lines */
+span.half-line-thick {
+  height: 7px;
+  width: 120px;
+  display: block;
+  background-color: $light-yellow;
+}
+
+span.half-line-thin {
+  height: 2px;
+  width: 50%;
+  display: block;
+  background-color: color(primary);
+}
+
+span.full-line-thin {
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin: 0.5rem 0;
+  background-color: color(primary);
+}
+/* ---------------- */
+/* Full width content */
+.full-width-blue {
+  background-color: color(light-blue);
+}
+/* ---------------- */
+/* Hero */
+.page-name {
+  padding: 0;
+
+  h1 {
+    color: #fff;
+    font-size: 3.5rem;
+
+    @include mdDesktop {
+      font-size: 6rem;
+      margin-bottom: 2rem;
+    }
+    @include tablet {
+      font-size: 6rem;
+      margin-bottom: 2rem;
+    }
+    @include phone {
+      font-size: 11vw;
+      margin-bottom: 0;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 2rem;
+
+    @include phone {
+      font-size: 1.4rem;
+    }
+  }
+  @include tablet {
+    padding: 0 1.5rem;
+  }
+  @include phone {
+    font-size: 11vw;
+    margin-bottom: 1rem;
+  }
+}
+/* Mission Section */
+.our-mission {
+  background-color: $grey;
+
+  .image-wrapper {
+    width: 387px;
+    height: 582px;
+    margin: 0;
+    margin-left: auto;
+
+    @include mdDesktop {
+      max-width: 406px;
+      margin: auto;
+    }
+  }
+
+  .home-mission-content {
+    margin-top: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+/* Video Section*/
+.video-description {
+  padding: 0;
+
+  @include mdDesktop {
+    padding: 0 2rem;
+  }
+
+  .video-info {
+    margin-left: 2rem;
+
+    @include mdDesktop {
+      margin-left: 0;
+    }
+  }
+}
+/* Footer */
+.logo-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .logo-image {
+    filter: drop-shadow(0px 0px 0px #333);
+  }
+  .logo-text {
+    margin-left: 1rem;
+  }
+}
+.footer-col-03 {
+  margin: 1rem 0;
+  text-align: right;
+  @include mdDesktop {
+    text-align: left;
+  }
+}

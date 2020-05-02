@@ -5,42 +5,31 @@ module.exports = {
     author: `Victor Atencio`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
-    // {
-    //   resolve: "gatsby-source-wordpress",
-    //   options: {
-    //     baseUrl: "wp.agrupacionvirgendelujan.com/",
-    //     protocol: "https",
-    //     hostingWPCOM: false,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/vdl-icon.png`,
+      },
+    },
     {
       resolve: `gatsby-source-graphql`,
       options: {
         typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
-        url: `http://agrupacionvirgendelujan/graphql`,
+        // url: `http://agrupacionvirgendelujan/graphql`,
+        url: `https://www.agrupacionvirgendelujan.com/graphql`,
       },
     },
   ],

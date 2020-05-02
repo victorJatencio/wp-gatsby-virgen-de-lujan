@@ -1,21 +1,17 @@
 import React from "react"
 import Header from "./header"
+import Footer from "./footer"
 
 import "@wordpress/block-library/build-style/style.css"
-import "./layout.css"
+import "../styles/layout.scss"
+import "../styles/flexboxgrid.scss"
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }
