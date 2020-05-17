@@ -50,6 +50,7 @@ const HighlightBlue = styled.span`
 `
 const FacebookContent = styled.div`
   padding: 2rem 0;
+  overflow: hidden;
 `
 const FacebookContentLink = styled.a`
   color: #005595;
@@ -125,8 +126,7 @@ const HomeTemplate = ({ data }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        textAlign: "right",
-                        marginTop: "3rem",
+                        textAlign: "left",
                       }}
                     >
                       Haga click aqui para ver este video por facebook
@@ -137,7 +137,6 @@ const HomeTemplate = ({ data }) => {
                         href="https://www.facebook.com/Agrupacion-Virgen-de-Lujan-StLucy-NJ-194027464762506/"
                         colorScheme="dark"
                         showFaces
-                        share
                       />
                     </FacebookProvider>
                   </FacebookContent>

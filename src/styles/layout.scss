@@ -254,7 +254,14 @@ span.full-line-thin {
     margin: 0;
     margin-left: auto;
 
+    img {
+      @include tablet {
+        max-width: 300px;
+      }
+    }
+
     @include mdDesktop {
+      width: 100%;
       max-width: 406px;
       margin: auto;
     }
