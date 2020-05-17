@@ -5,6 +5,7 @@ import Hero from "../components/hero"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { FacebookProvider, Like } from "react-facebook"
 
 export const query = graphql`
   query {
@@ -47,6 +48,15 @@ export const query = graphql`
 const HighlightBlue = styled.span`
   color: #26bce3;
 `
+const FacebookContent = styled.div`
+  padding: 2rem 0;
+`
+const FacebookContentLink = styled.a`
+  color: #005595;
+  margin: 1rem 0;
+  display: inline-block;
+`
+
 const HomeTemplate = ({ data }) => {
   const SiteData = data.wpgraphql.generalSettings
   const Mission = data.wpgraphql.page.OurMission
@@ -109,8 +119,8 @@ const HomeTemplate = ({ data }) => {
                 <div className="video-info">
                   <h3 className="h3">{VideoStream.subTitulo}</h3>
                   <p>{VideoStream.descripccion}</p>
-                  <div>
-                    <a
+                  <FacebookContent>
+                    <FacebookContentLink
                       href={VideoStream.facebookUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -119,9 +129,18 @@ const HomeTemplate = ({ data }) => {
                         marginTop: "3rem",
                       }}
                     >
-                      Siganos en Facebook
-                    </a>
-                  </div>
+                      Haga click aqui para ver este video por facebook
+                    </FacebookContentLink>
+
+                    <FacebookProvider appId="1274555702729260">
+                      <Like
+                        href="https://www.facebook.com/Agrupacion-Virgen-de-Lujan-StLucy-NJ-194027464762506/"
+                        colorScheme="dark"
+                        showFaces
+                        share
+                      />
+                    </FacebookProvider>
+                  </FacebookContent>
                 </div>
               </div>
             </div>
