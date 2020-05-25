@@ -71,7 +71,7 @@ const HomeTemplate = ({ data }) => {
           Agrupacion <HighlightBlue>Virgen</HighlightBlue> de{" "}
           <HighlightBlue>Lujan</HighlightBlue>
         </h1>
-        <p>{SiteData.description}</p>
+        <p dangerouslySetInnerHTML={{ __html: SiteData.description }} />
       </Hero>
       <Layout>
         <section className="container our-mission lg-divider">
